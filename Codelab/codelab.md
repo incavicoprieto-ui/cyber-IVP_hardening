@@ -1,3 +1,13 @@
+- - - 
+author: Inca Vico Prieto
+summary: Guía para bastionado BIOS/UEFI
+id: identificador-unico-del-codelab
+categories: codelab,markdown
+environments: Web
+status: Published
+feedback link: Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)
+analytics account: ID de Google Analytics
+- - -
 ## **Guía para Bastionar la BIOS/UEFI**
 
 Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier entorno organizacional o personal, ya que muchas amenazas pueden aprovecharse de configuraciones por defecto. A continuación se explica, de forma práctica, cómo proteger firmemente tu sistema.
@@ -13,7 +23,7 @@ Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier e
 4. **Guarda los cambios antes de salir:**  
    Presiona F10 y elige “Save and Exit”.  
    **Resultado:** Al encender el equipo, deberás ingresar la nueva contraseña para iniciar el sistema operativo.  
-   ![contraseña de usuario][img/bioscontrasena.png]
+   ![contraseña de usuario](img/bioscontrasena.png)
 
 ## **Contraseña de administrador (Supervisor Password)**
 
@@ -24,7 +34,7 @@ Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier e
 3. **Importante:**  
    Esta clave impide que otros usuarios accedan o alteren las opciones críticas del BIOS/UEFI, aunque puedan arrancar el sistema.
 
-![supervisor password][img/biossetsupervisorpassword.png]
+![supervisor password](img/biossetsupervisorpassword.png)
 
 ## **Arranques externos (bloquear arranque desde USB, CD/DVD, red)**
 
@@ -35,7 +45,7 @@ Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier e
 3. **Opcional:**  
    Algunos equipos permiten deshabilitar puertos USB completamente o limitar su función sólo a teclado/ratón en el menú de **Security/Advanced**.
 
-![control de arranque USB][img/bioscontrolarelarranque.png]
+![control de arranque USB](img/bioscontrolarelarranque.png)
 
 ## **Orden de arranque (establecer un orden seguro)**
 
@@ -44,13 +54,13 @@ Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier e
 2. **Baja o elimina de la lista otras opciones como CD/DVD/USB/Red:**  
    Así previenes que, si algún arranque externo se habilita por error, tenga prioridad sobre el disco principal.
 
-![orden de arranque][img/biosordendearranque.png]
+![orden de arranque](img/biosordendearranque.png)
 
 ## **Secure Boot.**
 
 Habilita “Secure Boot” dentro de la BIOS/UEFI para evitar que sistemas operativos no firmados puedan arrancar en el equipo.
 
-![secure boot habilitado][img/biossecureboothabilitado.png]  
+![secure boot habilitado](img/biossecureboothabilitado.png)  
 
 ## **Otras opciones de seguridad recomendadas**
 
@@ -74,11 +84,3 @@ Esta metodología te permitirá asegurar la BIOS/UEFI de un equipo de forma robu
 
 
 
-author: Inca Vico Prieto
-summary: Guía para bastionado BIOS/UEFI
-id: identificador-unico-del-codelab
-categories: codelab,markdown
-environments: Web
-status: Published
-feedback link: Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)
-analytics account: ID de Google Analytics

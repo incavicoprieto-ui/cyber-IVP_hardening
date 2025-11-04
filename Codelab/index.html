@@ -1,0 +1,118 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="ID de Google Analytics"
+                  id="identificador-unico-del-codelab"
+                  title=""
+                  environment="web"
+                  feedback-link="Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)">
+    
+      <google-codelab-step label="Guía para Bastionar la BIOS/UEFI" duration="0">
+        <p>Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier entorno organizacional o personal, ya que muchas amenazas pueden aprovecharse de configuraciones por defecto. A continuación se explica, de forma práctica, cómo proteger firmemente tu sistema.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Contraseña de usuario o Power-On (Contraseña de arranque)" duration="0">
+        <ol type="1">
+<li><strong>Ingresar a la BIOS/UEFI:<br></strong> Reinicia el equipo y durante los primeros segundos, según la marca, presiona repetidamente la tecla indicada (usualmente F2, SUPR, ESC o F10) hasta desplegar la configuración del firmware.</li>
+<li><strong>Ubica el menú de Seguridad (Security):<br></strong> Utiliza las flechas para navegar hasta encontrar el apartado <strong>Security</strong>.</li>
+<li><strong>Selecciona la opción de &#34;Set Administrator Password&#34;:<br></strong> Pulsa Enter y el sistema te pedirá que escribas una contraseña nueva. Vuelve a ingresarla para confirmarla. Se recomienda elegir una contraseña robusta.</li>
+<li><strong>Guarda los cambios antes de salir:<br></strong> Presiona F10 y elige &#34;Save and Exit&#34;.<br><strong>Resultado:</strong> Al encender el equipo, deberás ingresar la nueva contraseña para iniciar el sistema operativo.<br> ![contraseña de usuario][img/bioscontrasena.png]</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Contraseña de administrador (Supervisor Password)" duration="0">
+        <ol type="1">
+<li><strong>Accede al menú de Seguridad dentro de la BIOS/UEFI:<br></strong> Normalmente se encuentra bajo el nombre <strong>Security</strong>.</li>
+<li><strong>Busca y configura la &#34;Administrator Password&#34;:<br></strong> Selecciona la opción, pulsa Enter y escribe una contraseña diferente y fuerte, que te permita modificar cualquier ajuste de la BIOS/UEFI. Confírma la contraseña.</li>
+<li><strong>Importante:<br></strong> Esta clave impide que otros usuarios accedan o alteren las opciones críticas del BIOS/UEFI, aunque puedan arrancar el sistema.</li>
+</ol>
+<p>![supervisor password][img/biossetsupervisorpassword.png]</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Arranques externos (bloquear arranque desde USB, CD/DVD, red)" duration="0">
+        <ol type="1">
+<li><strong>Localiza el menú &#34;Boot&#34; o &#34;Startup&#34;:<br></strong> Dentro de la BIOS/UEFI, navega hasta la sección de prioridades de arranque.</li>
+<li><strong>Deshabilita el arranque desde dispositivos externos:<br></strong> Localiza las opciones tales como <strong>USB Boot, CD/DVD Boot, Network/PXE Boot</strong> y, una a una, cámbialas a &#34;Disabled&#34;.</li>
+<li><strong>Opcional:<br></strong> Algunos equipos permiten deshabilitar puertos USB completamente o limitar su función sólo a teclado/ratón en el menú de <strong>Security/Advanced</strong>.</li>
+</ol>
+<p>![control de arranque USB][img/bioscontrolarelarranque.png]</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Orden de arranque (establecer un orden seguro)" duration="0">
+        <ol type="1">
+<li><strong>Dentro del menú &#34;Boot&#34;, revisa el listado de prioridades:<br></strong> Usa las flechas o instrucciones indicadas para asegurarte de que Windows Boot Manager está en el primer lugar.</li>
+<li><strong>Baja o elimina de la lista otras opciones como CD/DVD/USB/Red:<br></strong> Así previenes que, si algún arranque externo se habilita por error, tenga prioridad sobre el disco principal.</li>
+</ol>
+<p>![orden de arranque][img/biosordendearranque.png]</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Secure Boot." duration="0">
+        <p>Habilita &#34;Secure Boot&#34; dentro de la BIOS/UEFI para evitar que sistemas operativos no firmados puedan arrancar en el equipo.</p>
+<p>![secure boot habilitado][img/biossecureboothabilitado.png]</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Otras opciones de seguridad recomendadas" duration="0">
+        <ul>
+<li>TPM (Trusted Platform Module):<br> Activa el TPM si planeas usar cifrado a nivel del sistema operativo, como BitLocker. Esto se encuentra usualmente en &#34;Security&#34; &gt; &#34;TPM&#34;.​</li>
+<li>Contraseña de disco (HDD/SSD Password):<br> Algunos equipos permiten proteger físicamente el disco duro con una contraseña independiente a la del BIOS. Esto impide que el disco se pueda leer, incluso si se extrae y monta en otro PC.​</li>
+<li>Deshabilitar puertos o conectividad no utilizada:<br> Desactiva dispositivos integrados (WiFi, Bluetooth, lectores de tarjetas) si no se usan, desde el menú &#34;Advanced&#34; o &#34;Integrated Peripherals&#34;.</li>
+<li>Desactivar CSM/Legacy Boot:<br> Esto fuerza al sistema a usar solo el modo UEFI, que es más seguro; se hace desde &#34;Boot&#34; o &#34;Compatibility Support Module (CSM)&#34;.​</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Recomendaciones finales" duration="0">
+        <ul>
+<li>Cambia las contraseñas periódicamente y nunca uses las predeterminadas.​​</li>
+<li>Anota y resguarda las contraseñas en un lugar seguro.</li>
+<li>Protege con la contraseña de administrador toda la BIOS, especialmente después de definir un arranque seguro y deshabilitar opciones externas.</li>
+<li>Ante cualquier duda, consulta la documentación de tu fabricante para localizar los menús o términos exactos.</li>
+</ul>
+<p>Esta metodología te permitirá asegurar la BIOS/UEFI de un equipo de forma robusta y siguiendo tanto los requisitos solicitados como las mejores prácticas actuales.​​</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
