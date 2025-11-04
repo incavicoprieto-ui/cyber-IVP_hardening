@@ -20,8 +20,9 @@
   </style>
 </head>
 <body>
-  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
   <google-codelab codelab-gaid="ID de Google Analytics"
+                  codelab-ga4id=""
                   id="identificador-unico-del-codelab"
                   title=""
                   environment="web"
@@ -38,7 +39,7 @@
 <li><strong>Ingresar a la BIOS/UEFI:<br></strong> Reinicia el equipo y durante los primeros segundos, según la marca, presiona repetidamente la tecla indicada (usualmente F2, SUPR, ESC o F10) hasta desplegar la configuración del firmware.</li>
 <li><strong>Ubica el menú de Seguridad (Security):<br></strong> Utiliza las flechas para navegar hasta encontrar el apartado <strong>Security</strong>.</li>
 <li><strong>Selecciona la opción de &#34;Set Administrator Password&#34;:<br></strong> Pulsa Enter y el sistema te pedirá que escribas una contraseña nueva. Vuelve a ingresarla para confirmarla. Se recomienda elegir una contraseña robusta.</li>
-<li><strong>Guarda los cambios antes de salir:<br></strong> Presiona F10 y elige &#34;Save and Exit&#34;.<br><strong>Resultado:</strong> Al encender el equipo, deberás ingresar la nueva contraseña para iniciar el sistema operativo.<br> ![contraseña de usuario][img/bioscontrasena.png]</li>
+<li><strong>Guarda los cambios antes de salir:<br></strong> Presiona F10 y elige &#34;Save and Exit&#34;.<br><strong>Resultado:</strong> Al encender el equipo, deberás ingresar la nueva contraseña para iniciar el sistema operativo.<br><img alt="contraseña de usuario" src="img\\b47d33ce1ac4fbd0.png"></li>
 </ol>
 
 
@@ -50,7 +51,7 @@
 <li><strong>Busca y configura la &#34;Administrator Password&#34;:<br></strong> Selecciona la opción, pulsa Enter y escribe una contraseña diferente y fuerte, que te permita modificar cualquier ajuste de la BIOS/UEFI. Confírma la contraseña.</li>
 <li><strong>Importante:<br></strong> Esta clave impide que otros usuarios accedan o alteren las opciones críticas del BIOS/UEFI, aunque puedan arrancar el sistema.</li>
 </ol>
-<p>![supervisor password][img/biossetsupervisorpassword.png]</p>
+<p class="image-container"><img alt="supervisor password" src="img\\569ecf2aa95ea05c.png"></p>
 
 
       </google-codelab-step>
@@ -61,7 +62,7 @@
 <li><strong>Deshabilita el arranque desde dispositivos externos:<br></strong> Localiza las opciones tales como <strong>USB Boot, CD/DVD Boot, Network/PXE Boot</strong> y, una a una, cámbialas a &#34;Disabled&#34;.</li>
 <li><strong>Opcional:<br></strong> Algunos equipos permiten deshabilitar puertos USB completamente o limitar su función sólo a teclado/ratón en el menú de <strong>Security/Advanced</strong>.</li>
 </ol>
-<p>![control de arranque USB][img/bioscontrolarelarranque.png]</p>
+<p class="image-container"><img alt="control de arranque USB" src="img\\523b5b46477cafb8.png"></p>
 
 
       </google-codelab-step>
@@ -71,14 +72,14 @@
 <li><strong>Dentro del menú &#34;Boot&#34;, revisa el listado de prioridades:<br></strong> Usa las flechas o instrucciones indicadas para asegurarte de que Windows Boot Manager está en el primer lugar.</li>
 <li><strong>Baja o elimina de la lista otras opciones como CD/DVD/USB/Red:<br></strong> Así previenes que, si algún arranque externo se habilita por error, tenga prioridad sobre el disco principal.</li>
 </ol>
-<p>![orden de arranque][img/biosordendearranque.png]</p>
+<p class="image-container"><img alt="orden de arranque" src="img\\1db14f9d3fcac316.png"></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Secure Boot." duration="0">
         <p>Habilita &#34;Secure Boot&#34; dentro de la BIOS/UEFI para evitar que sistemas operativos no firmados puedan arrancar en el equipo.</p>
-<p>![secure boot habilitado][img/biossecureboothabilitado.png]</p>
+<p class="image-container"><img alt="secure boot habilitado" src="img\\e15e9f7170d33322.png"></p>
 
 
       </google-codelab-step>
