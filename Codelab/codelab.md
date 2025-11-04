@@ -8,6 +8,7 @@ status: Published
 feedback link: Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)
 analytics account: ID de Google Analytics
 - - -
+
 ## **Guía para Bastionar la BIOS/UEFI**
 
 Garantizar la seguridad del equipo desde la BIOS/UEFI es esencial en cualquier entorno organizacional o personal, ya que muchas amenazas pueden aprovecharse de configuraciones por defecto. A continuación se explica, de forma práctica, cómo proteger firmemente tu sistema.
