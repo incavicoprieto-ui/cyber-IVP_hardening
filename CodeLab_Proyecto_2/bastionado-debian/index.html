@@ -1,0 +1,163 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Informe de bastionado del arranque en Debian (VirtualBox)</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="bastionado-debian"
+                  title="Informe de bastionado del arranque en Debian (VirtualBox)"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="1. Inicio de la instalación y elección del método" duration="0">
+        <p>Arranco la máquina virtual con la ISO de Debian y elijo el modo de instalación (puede ser gráfico o por texto).</p>
+<p><img alt="Instalación Debian" src="img\\ce73351cab5349e5.png"><br> ​</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="2. Selección de método de particionado" duration="0">
+        <p>Elijo &#34;Manual&#34; para configurar particiones acorde a las buenas prácticas.</p>
+<p><img alt="Partición manual" src="img\\e7c5d1bcba948d1e.png"><br> ​</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3. Selección del disco para particionado" duration="0">
+        <p>Selecciono el disco duro virtual disponible.</p>
+<p><img alt="Partición guiada" src="img\\9c69bd99d4b6a9ad.png"><br> ​</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4. Creación de las particiones" duration="0">
+        <p>Creo las siguientes particiones, seleccionando &#34;espacio libre&#34; y definiendo una por una:</p>
+<p class="image-container"><img alt="Espacio libre" src="img\\cc87e47aba0b8fb.png"></p>
+<h2 is-upgraded>/boot</h2>
+<p>1 GB, primaria, ext4, marca de arranque activada<br><img alt="Boot" src="img\\e6711bcd3f44b6f7.png"></p>
+<h2 is-upgraded>/</h2>
+<p>10 GB, primaria, ext4<br><img alt="Raíz" src="img\\f41266bfbb9b5933.png"></p>
+<h2 is-upgraded>swap</h2>
+<p>2 GB, lógica, área de intercambio<br><img alt="swap" src="img\\188225ea5434bdee.png"></p>
+<h2 is-upgraded>/home</h2>
+<p>Resto del disco, lógica, ext4 <img alt="home" src="img\\8ebc23d8e20d4a97.png"></p>
+<p>​<br> ​<br> ​</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="5. Confirmación de todas las particiones" duration="0">
+        <p>Verifico que las particiones han quedado correctamente configuradas.</p>
+<p><img alt="Confirmación" src="img\\79c84458bc7cf121.png"> ​</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="6. Instalación del sistema base" duration="0">
+        <p>Dejo que el instalador copie los archivos y configure la base de Debian.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="7. Configuración del gestor de paquetes y repositorios" duration="0">
+        <p>Elijo el repositorio recomendado de Debian para obtener actualizaciones (por defecto: deb.debian.org), omitiendo proxy si no es necesario.<br> ​<img alt="Actualizaciones" src="img\\711ebbf24f0357bd.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="8. Selección de programas" duration="0">
+        <p>Marco únicamente el entorno de escritorio deseado y &#34;Utilidades estándar del sistema&#34;, para evitar servicios innecesarios y reducir superficie de ataque.<br> ​<img alt="Programas" src="img\\2d8eafa2d33378b8.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="9. Instalación del cargador de arranque GRUB" duration="0">
+        <p>Instalo GRUB en /dev/sda, el disco principal, para gestionar el arranque.</p>
+<p><img alt="Instalación GRUB" src="img\\690cb4f3f2a27267.png"> ​</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="10. Creación y verificación de contraseña de superusuario (root)" duration="0">
+        <p>Configuro correctamente la contraseña de root durante la instalación.<br> ​<img alt="Configuración" src="img\\7863a1ad9bd7535f.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="11. Mantenimiento del sistema: actualización de paquetes" duration="0">
+        <p>Tras la instalación, actualizo el sistema con:</p>
+<p><code>apt update && apt upgrade</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="12. Ocultación del menú de GRUB" duration="0">
+        <p>Edición de /etc/default/grub para ocultar el menú de arranque y reducir el vector de ataques físicos:</p>
+<p><code>GRUB_TIMEOUT_STYLE=hidden</code><br><code>GRUB_TIMEOUT=0</code><br><img alt="Time out" src="img\\dca5583c03cac4aa.png"></p>
+<p class="image-container"><img alt="GRUB oculto" src="img\\c4e583f31b047dd5.png"></p>
+<p>​<br> ​</p>
+<p>Actualizo la configuración:</p>
+<p><code>update-grub</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="13. Protección del GRUB con contraseña" duration="0">
+        <p>Genero el hash de la contraseña con:</p>
+<p><code>grub-mkpasswd-pbkdf2</code></p>
+<p>Modifico /etc/grub.d/40_custom para definir usuario y hash:</p>
+<p><code>set superuser="NOMBRE"</code><br><code>password_pbkdf2 NOMBRE HASH</code></p>
+<p>Actualizo GRUB:</p>
+<p><code>update-grub</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="14. Copias de seguridad de configuración del arranque" duration="0">
+        <p>Guardo copia de los principales archivos de configuración:</p>
+<p><code>cp /boot/grub/grub.cfg /boot/grub/grub.cfg.bak</code><br><code>cp /etc/default/grub /etc/default/grub.bak</code><br><code>cp /etc/grub.d/40_custom /etc/grub.d/40_custom.bak</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="15. Desactivar combinaciones de teclas peligrosas" duration="0">
+        <p>Desactivo la tecla Ctrl+Alt+Supr para evitar reinicios no autorizados:</p>
+<p><code>systemctl mask ctrl-alt-del.target</code><br><code>systemctl daemon-reload</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="16. Justificación BIOS/UEFI" duration="0">
+        <p>No se protege la BIOS/UEFI ni el orden de arranque porque en VirtualBox no es posible implementar esta medida, pero se documenta que en hardware real se debería poner contraseña y bloquear arranque externo.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

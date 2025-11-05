@@ -1,0 +1,20 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-11-05T20:22:46+01:00",
+  "id": "bastionado-debian",
+  "duration": 0,
+  "title": "Informe de bastionado del arranque en Debian (VirtualBox)",
+  "authors": "Inca Vico Prieto",
+  "summary": "Guía de Bastionado de Servidor Debian",
+  "source": "bd.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": null,
+  "tags": [],
+  "url": "bastionado-debian"
+}
